@@ -57,7 +57,7 @@ financial_agent = Agent(
     "Separate factual data from analysis",
     "Do not provide website URLs",
     "Summarize clearly and concisely",
-]
+    ],
     markdown=True,
     show_tool_calls=False,
 )
