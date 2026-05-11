@@ -42,7 +42,7 @@ financial_agent = Agent(
     tools=[
         latest_stock_news,
         YFinanceTools(
-            stock_price=True,
+            # stock_price=True,
             analyst_recommendations=True,
             company_info=True,
         ),
