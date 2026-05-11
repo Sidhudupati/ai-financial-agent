@@ -49,12 +49,15 @@ financial_agent = Agent(
     ],
     instructions=[
     "Always use Yahoo Finance tools for stock prices and analyst recommendations",
-    "Never guess stock prices",
+    "Never guess or fabricate financial data",
+    "If data is unavailable, explicitly mention it",
+    "If financial tools fail, use latest_stock_news to provide qualitative analysis",
     "Use latest_stock_news for financial news",
     "Use tables for financial data",
+    "Separate factual data from analysis",
     "Do not provide website URLs",
     "Summarize clearly and concisely",
-    ],
+]
     markdown=True,
     show_tool_calls=False,
 )
