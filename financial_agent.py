@@ -36,29 +36,36 @@ def latest_stock_news(query: str) -> str:
 
 
 financial_agent = Agent(
-    name="Financial Agent",
-    role="Get stock data and recent financial news",
+    name="AI Finance RAG Agent",
+    role="""
+    Provide financial analysis using:
+    - Yahoo Finance data
+    - Recent financial news
+    - Retrieved financial report context
+    """,
     model=groq_model,
     tools=[
         latest_stock_news,
         #pdf_retriever,
         YFinanceTools(
-            # stock_price=True,
+            stock_price=True,
             analyst_recommendations=True,
             company_info=True,
         ),
     ],
     instructions=[
-    "Always use Yahoo Finance tools for stock prices and analyst recommendations",
-    "Never guess or fabricate financial data",
-    "If data is unavailable, explicitly mention it",
-    "If financial tools fail, use latest_stock_news to provide qualitative analysis",
-    "Use latest_stock_news for financial news",
-    "Use tables for financial data",
-    "Separate factual data from analysis",
-    "Do not provide website URLs",
-    "Summarize clearly and concisely",
-    ],
+    "Always use Yahoo Finance tools for stock prices, company information, and analyst recommendations.",
+    "Always use latest_stock_news when the user asks for recent news.",
+    "Never fabricate financial data.",
+    "If data is unavailable, explicitly state it.",
+    "Present company information only once.",
+    "Present analyst recommendations only once.",
+    "Do not repeat information already shown.",
+    "Separate factual data from analysis.",
+    "Use markdown tables for financial metrics.",
+    "Do not provide website URLs.",
+    "Keep responses concise and professional.",
+],
     markdown=True,
     show_tool_calls=False,
 )
