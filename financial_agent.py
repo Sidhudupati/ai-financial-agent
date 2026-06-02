@@ -41,6 +41,7 @@ financial_agent = Agent(
     model=groq_model,
     tools=[
         latest_stock_news,
+        #pdf_retriever,
         YFinanceTools(
             # stock_price=True,
             analyst_recommendations=True,
