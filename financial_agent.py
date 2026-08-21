@@ -12,7 +12,7 @@ load_dotenv()
 os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 groq_model = Groq(
-    id="llama-3.3-70b-versatile",
+    id="openai/gpt-oss-120b",
     api_key=os.getenv("GROQ_API_KEY"),
 )
 
